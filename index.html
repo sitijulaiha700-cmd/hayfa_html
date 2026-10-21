@@ -3,284 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semangat Pulang Kerja, Kak Hayfa Sayang! 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Sacramento&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <title>Special Story for Kak Hayfa 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Quicksand', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ffccd5 0%, #ff758c 50%, #ff4d6d 100%);
+            height: 100vh;
+            height: 100dvh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 15px;
-            position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
             color: #590d22;
         }
 
-        /* BACKGROUND ELEMENTS */
-        .bg-element {
+        /* FLOATING PARTICLES */
+        .particle {
             position: absolute;
             pointer-events: none;
-            animation: floatUp 6s linear infinite;
-            opacity: 0.7;
+            animation: floatUp 5s linear infinite;
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
 
-        /* CARD CONTAINER */
-        .card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 3px solid #ffb3c1;
+        /* GAME CONTAINER */
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 4px solid #ffb3c1;
             width: 100%;
             max-width: 420px;
             border-radius: 28px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(201, 24, 74, 0.25);
-            z-index: 10;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(201, 24, 74, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
             position: relative;
+            z-index: 10;
         }
 
-        .badge {
+        /* HEADER BADGE */
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed #ffb3c1;
+            padding-bottom: 10px;
+        }
+
+        .status-badge {
             background: #ff4d6d;
-            color: #fff;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .title-handwriting {
-            font-family: 'Sacramento', cursive;
-            font-size: 2.8rem;
-            color: #c9184a;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-
-        .subtitle {
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.1rem;
-            color: #800f2f;
-            margin-bottom: 16px;
+            font-size: 0.8rem;
         }
 
-        .illustration {
-            font-size: 4rem;
-            margin: 10px 0;
+        /* AVATAR STAGE */
+        .character-stage {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .character-avatar {
+            font-size: 4.5rem;
             animation: bounce 2s infinite ease-in-out;
+            display: inline-block;
+            filter: drop-shadow(0 8px 15px rgba(255, 77, 109, 0.3));
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .sweet-message {
+        /* DIALOGUE BOX */
+        .dialogue-box {
             background: #fff0f3;
-            border-left: 4px solid #ff4d6d;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 0.88rem;
+            border: 2px solid #ff4d6d;
+            border-radius: 18px;
+            padding: 15px;
+            min-height: 110px;
+            position: relative;
+            font-size: 0.95rem;
             line-height: 1.5;
             color: #590d22;
-            margin-bottom: 18px;
-            text-align: left;
+            font-weight: 600;
         }
 
-        /* BUTTONS */
-        .btn-group {
+        .speaker-tag {
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: #ff758c;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.75rem;
+        }
+
+        /* CONTROLS & CHOICES */
+        .controls {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .btn-action {
+        .btn-game {
             background: linear-gradient(135deg, #ff758c, #ff4d6d);
-            color: #fff;
+            color: white;
             border: none;
             padding: 12px;
-            border-radius: 18px;
+            border-radius: 16px;
             font-family: 'Fredoka', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            transition: all 0.2s;
+            text-align: center;
         }
 
-        .btn-action:active { transform: scale(0.97); }
+        .btn-game:active { transform: scale(0.96); }
 
-        .btn-secondary {
-            background: #fff;
-            color: #ff4d6d;
+        .btn-choice {
+            background: #ffffff;
+            color: #c9184a;
             border: 2px solid #ff758c;
             box-shadow: none;
         }
 
-        /* MODAL POPUP */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(89, 13, 34, 0.6);
-            backdrop-filter: blur(4px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            padding: 20px;
-        }
-
-        .modal-box {
-            background: #fff;
-            border-radius: 24px;
-            padding: 22px;
-            max-width: 360px;
-            width: 100%;
-            text-align: center;
-            border: 3px solid #ffb3c1;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes popUp {
-            from { transform: scale(0.7); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-title {
-            font-family: 'Fredoka', sans-serif;
-            color: #c9184a;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .modal-text {
-            font-size: 0.85rem;
-            color: #590d22;
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            margin-top: 18px;
-            font-size: 0.75rem;
-            color: #a4133c;
-            font-weight: 700;
+        .btn-choice:hover {
+            background: #fff0f3;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <span class="badge">🌙 Shift Malam - Subuh Finished! ✨</span>
-        <div class="title-handwriting">Welcome Home, Kak Hayfa!</div>
-        <div class="subtitle">Capek ya? Sini Shaka Peluk Dulu 🫂</div>
-
-        <div class="illustration">🧸🌸</div>
-
-        <div class="sweet-message">
-            <strong>Pesan Khusus dari Shaka:</strong><br>
-            Makasih banyak ya Kak Hayfa udah berjuang keras dari malam sampai subuh ini. Shaka bangga banget punya cewek hebat dan pekerja keras kayak Kak Hayfa! Sekarang waktunya istirahat, lepas semua lelahnya ya sayang. ❤️
+    <div class="game-card">
+        <div class="game-header">
+            <span class="status-badge">🌙 Misi: Rehat Kak Hayfa</span>
+            <span style="font-size:0.8rem; font-weight:700; color:#c9184a;" id="stepCounter">Bab 1/4</span>
         </div>
 
-        <div class="btn-group">
-            <button class="btn-action" onclick="openSurat()">
-                💌 Buka Surat Cinta dari Shaka
-            </button>
-            <button class="btn-action btn-secondary" onclick="kirimPeluk()">
-                🤗 Ambil Pelukan Hangat dari Shaka
-            </button>
-            <button class="btn-action btn-secondary" onclick="resepIstirahat()">
-                🍵 Resep Nyenyak Buat Kak Hayfa
-            </button>
+        <div class="character-stage">
+            <div class="character-avatar" id="avatarEmoji">🧸</div>
         </div>
 
-        <div class="footer-text">Made with ❤️ by Shaka | Always Proud of Kak Hayfa</div>
-    </div>
+        <div class="dialogue-box">
+            <div class="speaker-tag" id="speakerName">Shaka</div>
+            <div id="typewriterText">...</div>
+        </div>
 
-    <div class="modal-overlay" id="modalBox">
-        <div class="modal-box">
-            <div style="font-size: 2.5rem; margin-bottom: 6px;" id="modalEmoji">💌</div>
-            <div class="modal-title" id="modalTitle">Surat Buat Kak Hayfa</div>
-            <div class="modal-text" id="modalText">Teks surat...</div>
-            <button class="btn-action" style="width: 100%;" onclick="closeModal()">Tutup & Buka Selimut 🛌</button>
+        <div class="controls" id="actionArea">
+            <button class="btn-game" onclick="nextDialogue()">Lanjut ➡️</button>
         </div>
     </div>
 
     <script>
-        function createBgElements() {
-            const symbols = ['💖', '🌸', '✨', '🌙', '☁️', '🧸', '💕'];
-            for (let i = 0; i < 15; i++) {
-                let el = document.createElement('div');
-                el.className = 'bg-element';
-                el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                el.style.fontSize = (Math.random() * 12 + 16) + 'px';
-                document.body.appendChild(el);
+        const story = [
+            {
+                speaker: "Shaka",
+                avatar: "🧸✨",
+                text: "Halo Kak Hayfa sayang! Akhirnya shift malamnya kelar juga yaa...",
+                counter: "Bab 1/4"
+            },
+            {
+                speaker: "Shaka",
+                avatar: "🥺💖",
+                text: "Shaka tau pasti capek banget, dari semalem melotot & berjuang pas orang lain lagi tidur nyenyak...",
+                counter: "Bab 2/4"
+            },
+            {
+                speaker: "Shaka",
+                avatar: "🫂🌸",
+                text: "Tapi Kak Hayfa hebat banget selalu bisa laluin semuanya! Sekarang pilih, Kak Hayfa mau apa dari Shaka?",
+                counter: "Bab 3/4",
+                isChoice: true
+            }
+        ];
+
+        let currentStep = 0;
+        let isTyping = false;
+
+        function createParticles() {
+            const symbols = ['💖', '✨', '🌸', '☁️', '🧸', '🌙'];
+            for (let i = 0; i < 12; i++) {
+                let p = document.createElement('div');
+                p.className = 'particle';
+                p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                p.style.fontSize = (Math.random() * 14 + 14) + 'px';
+                document.body.appendChild(p);
             }
         }
-        createBgElements();
+        createParticles();
 
-        function openSurat() {
-            document.getElementById('modalEmoji').innerText = '📜💖';
-            document.getElementById('modalTitle').innerText = 'Hai Kak Hayfa Sayang...';
-            document.getElementById('modalText').innerHTML = `
-                Saat orang lain baru bangun tidur, Kak Hayfa baru selesai berjuang melewati malam.<br><br>
-                Shaka tahu rasanya nahan kantuk dan capek dari malam sampai subuh itu berat banget. Tapi Kak Hayfa hebat selalu bisa melaluinya dengan luar biasa!<br><br>
-                Jangan lupa cuci muka, ganti baju yang hangat, terus langsung rebahan ya. Selamat tidur nyenyak dan mimpi indah Kak Hayfa cantiknya Shaka. <i>I'm so proud of you!</i> ✨
-            `;
-            document.getElementById('modalBox').style.display = 'flex';
+        function typeWriter(text, i = 0) {
+            if (i === 0) {
+                document.getElementById("typewriterText").innerHTML = "";
+                isTyping = true;
+            }
+            if (i < text.length) {
+                document.getElementById("typewriterText").innerHTML += text.charAt(i);
+                setTimeout(() => typeWriter(text, i + 1), 35);
+            } else {
+                isTyping = false;
+            }
         }
 
-        function kirimPeluk() {
-            document.getElementById('modalEmoji').innerText = '🫂🌸';
-            document.getElementById('modalTitle').innerText = 'Pelukan Paling Hangat!';
-            document.getElementById('modalText').innerHTML = `
-                <b>*Sending 1.000.000 Virtual Hugs for Kak Hayfa*</b> 💖<br><br>
-                Bayangin Shaka lagi elus kepala Kak Hayfa sambil bilang: <i>"Kerja bagus hari ini Kak Hayfa sayang, capeknya ditaruh dulu ya..."</i> 🤗
-            `;
-            document.getElementById('modalBox').style.display = 'flex';
+        function renderStep() {
+            const step = story[currentStep];
+            document.getElementById("speakerName").innerText = step.speaker;
+            document.getElementById("avatarEmoji").innerText = step.avatar;
+            document.getElementById("stepCounter").innerText = step.counter;
+            typeWriter(step.text);
+
+            const actionArea = document.getElementById("actionArea");
+            if (step.isChoice) {
+                actionArea.innerHTML = `
+                    <button class="btn-game btn-choice" onclick="makeChoice('peluk')">🫂 Minta Pelukan Hangat</button>
+                    <button class="btn-game btn-choice" onclick="makeChoice('resep')">🍵 Buka Resep Tidur Nyenyak</button>
+                    <button class="btn-game btn-choice" onclick="makeChoice('surat')">💌 Baca Surat Rahasia</button>
+                `;
+            } else {
+                actionArea.innerHTML = `<button class="btn-game" onclick="nextDialogue()">Lanjut ➡️</button>`;
+            }
         }
 
-        function resepIstirahat() {
-            document.getElementById('modalEmoji').innerText = '🍵🛏️';
-            document.getElementById('modalTitle').innerText = 'Resep Nyenyak Kak Hayfa';
-            document.getElementById('modalText').innerHTML = `
-                <b>Checklist Sebelum Tidur:</b><br>
-                1. 🥛 Minum air hangat / susu hangat.<br>
-                2. 🧼 Bersihin wajah & badan biar segar.<br>
-                3. 📱 Matikan alarm / pasang mode hening.<br>
-                4. 🛌 Tarik selimut tebal & pakai pakaian nyaman.<br><br>
-                Selamat tidur nyenyak Kak Hayfa! ❤️
-            `;
-            document.getElementById('modalBox').style.display = 'flex';
+        function nextDialogue() {
+            if (isTyping) return;
+            if (currentStep < story.length - 1) {
+                currentStep++;
+                renderStep();
+            }
         }
 
-        function closeModal() {
-            document.getElementById('modalBox').style.display = 'none';
+        function makeChoice(type) {
+            const actionArea = document.getElementById("actionArea");
+            document.getElementById("stepCounter").innerText = "Bab 4/4";
+
+            if (type === 'peluk') {
+                document.getElementById("avatarEmoji").innerText = "🫂❤️";
+                typeWriter("Sending 1.000.000 Virtual Hugs! Shaka elus kepalanya yaa: 'Kerja bagus hari ini Kak Hayfa sayang, sekarang lepas capeknya & istirahat yaa...'");
+            } else if (type === 'resep') {
+                document.getElementById("avatarEmoji").innerText = "🍵🛏️";
+                typeWriter("Resep Nyenyak: 1. Minum air/susu hangat 🥛 2. Cuci muka & badan 🧼 3. Pasang HP mode hening 📱 4. Tarik selimut tebal 🛌. Selamat tidur Kak Hayfa!");
+            } else if (type === 'surat') {
+                document.getElementById("avatarEmoji").innerText = "📜💖";
+                typeWriter("Surat Rahasia: Makasih udah selalu berjuang keras ya sayang. Shaka bangga banget punya cewek sehebat Kak Hayfa. Mimpi indah cantiknya Shaka! ✨");
+            }
+
+            actionArea.innerHTML = `<button class="btn-game" onclick="resetGame()">🔄 Mainkan Lagi</button>`;
         }
+
+        function resetGame() {
+            currentStep = 0;
+            renderStep();
+        }
+
+        // Start
+        renderStep();
     </script>
 </body>
 </html>
